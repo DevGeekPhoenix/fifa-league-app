@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./Pages/Home";
+import Players from "./Pages/Players";
+import Teams from "./Pages/Teams";
+import Coaches from "./Pages/Coaches";
+import Background from "./BackGround.png";
+import AddPlayerForm from "./Pages/AddPlayerForm";
+import AddTeamForm from "./Pages/AddTeamForm";
+import AddCoachForm from "./Pages/AddCoachForm";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        background: `url(${Background})`,
+        position: "absolute",
+        top: "0",
+        left: "0",
+        bottom: "0",
+        right: "0",
+        height: "100%",
+        width: "100%",
+        zIndex: "-1",
+      }}
+    >
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/players" element={<Players />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/coaches" element={<Coaches />} />
+        <Route path="/players/add" element={<AddPlayerForm />} />
+        <Route path="/teams/add" element={<AddTeamForm />} />
+        <Route path="/coaches/add" element={<AddCoachForm />} />
+      </Routes>
     </div>
   );
 }

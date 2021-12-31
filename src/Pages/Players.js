@@ -1,6 +1,7 @@
 import Navbar from "../Components/NavBar";
 import FilterSideBar from "../Components/FilterSideBar";
 import { Link } from "react-router-dom";
+import PlayersCard from "../Components/PlayersCard";
 
 const Players = () => {
   return (
@@ -12,6 +13,7 @@ const Players = () => {
           Add Players
         </button>
       </Link>
+      <PlayersCard />
     </div>
   );
 };

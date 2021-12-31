@@ -1,9 +1,37 @@
 import Navbar from "../Components/NavBar";
 import DatePicker from "react-datepicker";
 import React, { useState } from "react";
-const AddPlayerForm = () => {
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
+import { addPlayer } from "../Redux/Players/PlayersActions";
+const mapStateToProps = ({ database }) => ({ database });
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitPlayer: (obj) => dispatch(addPlayer(obj)),
+  };
+};
+
+const AddPlayerForm = ({ submitPlayer }) => {
+  const navigate = useNavigate();
+
   const [startDate, setStartDate] = useState(new Date());
-  const [inputvalue, setinputvalue] = useState("");
+  const [playerImgInputValue, setplayerImgInputValue] = useState("");
+  const [playerNameInputValue, setplayerNameInputValue] = useState("");
+  const [playerPositionInputValue, setplayerPositionInputValue] = useState("");
+  const [playerCurrentTeamInputValue, setplayerCurrentTeamInputValue] =
+    useState("");
+  const onsubmit = () => {
+    submitPlayer({
+      name: playerNameInputValue,
+      dateOfBirth: new Date(startDate).toISOString(),
+      playerPosition: playerPositionInputValue,
+      playerCurrentTeam: playerCurrentTeamInputValue,
+      playerImg: playerImgInputValue,
+    });
+    navigate("/players");
+  };
   return (
     <div className="">
       <Navbar />
@@ -13,6 +41,8 @@ const AddPlayerForm = () => {
             Player Full Name
           </label>
           <input
+            value={playerNameInputValue}
+            onChange={(e) => setplayerNameInputValue(e.target.value)}
             id="PlayerName"
             type="text"
             className="w-6/12 absolute right-2"
@@ -35,6 +65,8 @@ const AddPlayerForm = () => {
             Position
           </label>
           <input
+            value={playerPositionInputValue}
+            onChange={(e) => setplayerPositionInputValue(e.target.value)}
             id="Position"
             type="text"
             className="w-6/12 absolute right-2"
@@ -46,6 +78,8 @@ const AddPlayerForm = () => {
             Current Team
           </label>
           <input
+            value={playerCurrentTeamInputValue}
+            onChange={(e) => setplayerCurrentTeamInputValue(e.target.value)}
             id="Currentteam"
             type="text"
             className="w-6/12 absolute right-2"
@@ -57,11 +91,14 @@ const AddPlayerForm = () => {
             className="w-full mb-2"
             placeholder="Input Player Image URL"
             type="text"
-            value={inputvalue}
-            onChange={(e) => setinputvalue(e.target.value)}
+            value={playerImgInputValue}
+            onChange={(e) => setplayerImgInputValue(e.target.value)}
           />
-          <img className="h-40 m-auto" src={inputvalue} />
-          <button className="bg-[#d21ba4] w-full text-[#ffff8d] hover:bg-[#8a0e6b]   py-2">
+          <img className="h-40 m-auto" src={playerImgInputValue} />
+          <button
+            onClick={() => onsubmit()}
+            className="bg-[#d21ba4] w-full text-[#ffff8d] hover:bg-[#8a0e6b]   py-2"
+          >
             Add Player
           </button>
         </div>
@@ -69,5 +106,4 @@ const AddPlayerForm = () => {
     </div>
   );
 };
-
-export default AddPlayerForm;
+export default connect(mapStateToProps, mapDispatchToProps)(AddPlayerForm);

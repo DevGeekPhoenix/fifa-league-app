@@ -3,8 +3,7 @@ import FilterSideBar from "../Components/FilterSideBar";
 import { Link } from "react-router-dom";
 import TeamsCard from "../Components/TeamsCard";
 
-const Teams = (props) => {
-  console.log(props.database);
+const Teams = () => {
   return (
     <div className="">
       <Navbar />

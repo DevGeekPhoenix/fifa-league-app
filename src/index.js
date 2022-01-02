@@ -11,7 +11,7 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 
-import rootReducer from "./Redux/Teams/teamReducer";
+import rootReducer from "./Redux/Reducer";
 
 const store = createStore(
   rootReducer,

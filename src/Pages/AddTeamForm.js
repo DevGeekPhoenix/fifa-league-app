@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 import { addTeam } from "../Redux/Teams/TeamsActions";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 const mapStateToProps = ({ database }) => ({ database });
 
@@ -21,6 +23,7 @@ const AddTeamForm = ({ submitTeam }) => {
   const [teamNameInputValue, setteamNameInputValue] = useState("");
   const [teamCountryInputValue, setteamCountryInputValue] = useState("");
   const [teamStadiumInputValue, setteamStadiumInputValue] = useState("");
+  const [teamTypeInputValue, setteamTypeInputValue] = useState("");
   const onsubmit = () => {
     submitTeam({
       name: teamNameInputValue,
@@ -28,10 +31,14 @@ const AddTeamForm = ({ submitTeam }) => {
       teamCountry: teamCountryInputValue,
       teamStadium: teamStadiumInputValue,
       teamImg: teamImgInputValue,
+      teamType: teamTypeInputValue,
+      teamAttackNumber: Math.floor(Math.random() * (95 - 80 + 1) + 80),
+      teamMIDFIELDNumber: Math.floor(Math.random() * (90 - 70 + 1) + 70),
+      teamDEFENSENumber: Math.floor(Math.random() * (90 - 70 + 1) + 70),
     });
     navigate("/teams");
   };
-
+  const options = ["Club Teams", "National Teams"];
   return (
     <div className="">
       <Navbar />
@@ -48,18 +55,6 @@ const AddTeamForm = ({ submitTeam }) => {
             className="w-6/12 absolute right-2"
             placeholder="Write Teams Names"
           />
-        </div>
-        <div className=" flex flex-wrap p-1">
-          <label htmlFor="datepicker">Choose Date Of Foundation</label>
-          <span>
-            <DatePicker
-              style={{ display: "block" }}
-              id="datepicker"
-              className="ml-52"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-          </span>
         </div>
         <div className=" flex flex-wrap p-1">
           <label htmlFor="teamcountry" className="">
@@ -87,6 +82,30 @@ const AddTeamForm = ({ submitTeam }) => {
             placeholder="Write Teams Stadium"
           />
         </div>
+        <div className=" flex flex-wrap p-1">
+          <label htmlFor="datepicker">Choose Date Of Foundation</label>
+          <span>
+            <DatePicker
+              style={{ display: "block" }}
+              id="datepicker"
+              className="ml-48"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+            />
+          </span>
+        </div>
+        <div className=" flex flex-wrap p-1">
+          <label htmlFor="datepicker">Choose Team Type</label>
+          <span>
+            <Dropdown
+              className="ml-64"
+              options={options}
+              onChange={setteamTypeInputValue}
+              value={teamTypeInputValue}
+              placeholder="Select Team Type"
+            />
+          </span>
+        </div>
         <div className="  p-1">
           <input
             className="w-full mb-2"
@@ -98,7 +117,7 @@ const AddTeamForm = ({ submitTeam }) => {
           <img className="h-40 m-auto" src={teamImgInputValue} />
           <button
             onClick={() => onsubmit()}
-            className="bg-[#d21ba4] w-full text-[#ffff8d] hover:bg-[#8a0e6b]   py-2"
+            className="bg-[#d21ba4] w-full text-[#ffff8d] hover:bg-[#0d9fa7]   py-2"
           >
             Add Team
           </button>

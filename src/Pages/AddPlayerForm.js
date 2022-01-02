@@ -70,7 +70,7 @@ const AddPlayerForm = ({ submitPlayer }) => {
             id="Position"
             type="text"
             className="w-6/12 absolute right-2"
-            placeholder="Write Teams Country"
+            placeholder="Write Player Position"
           />
         </div>
         <div className=" flex flex-wrap p-1">
@@ -86,6 +86,7 @@ const AddPlayerForm = ({ submitPlayer }) => {
             placeholder="Write Player Current Team"
           />
         </div>
+
         <div className="  p-1">
           <input
             className="w-full mb-2"

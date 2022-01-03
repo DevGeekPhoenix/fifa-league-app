@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Modal from "./Modal";
+import TeamModal from "./TeamModal";
 import React, { useState } from "react";
 
 const mapStateToProps = ({ database }) => ({ database });
@@ -24,6 +24,7 @@ const TeamsCard = (props) => {
         {props.database.teams.map((team, i) => {
           return (
             <div
+              key={i}
               onClick={() =>
                 setmodalState({ isDisplayModal: true, selectTeam: team })
               }
@@ -49,7 +50,7 @@ const TeamsCard = (props) => {
       </div>
       <div className="absolute top-40 left-80">
         {modalState.isDisplayModal && modalState.selectTeam && (
-          <Modal team={modalState.selectTeam} />
+          <TeamModal team={modalState.selectTeam} />
         )}
       </div>
     </>

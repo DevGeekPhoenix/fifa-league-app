@@ -22,13 +22,45 @@ const AddPlayerForm = ({ submitPlayer }) => {
   const [playerPositionInputValue, setplayerPositionInputValue] = useState("");
   const [playerCurrentTeamInputValue, setplayerCurrentTeamInputValue] =
     useState("");
+  var monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   const onsubmit = () => {
     submitPlayer({
       name: playerNameInputValue,
-      dateOfBirth: new Date(startDate).toISOString(),
+      dateOfBirth: new Date(startDate).toISOString().substring(0, 10),
       playerPosition: playerPositionInputValue,
       playerCurrentTeam: playerCurrentTeamInputValue,
       playerImg: playerImgInputValue,
+      playerOffensiveAwareness: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerBallControl: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerDribbling: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerTightPossession: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerLowPass: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerLoftedPass: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerFinishing: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerHeading: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerSetPieceTaking: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerCurl: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerSpeed: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerAcceleration: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerKickingPower: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerJump: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerPhysicalContact: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerBalance: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerStamina: Math.floor(Math.random() * (95 - 55 + 1) + 55),
     });
     navigate("/players");
   };

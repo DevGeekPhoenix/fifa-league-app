@@ -70,3 +70,59 @@
   border-right: 6px solid #2eceff;
   box-shadow: -500px 0 0 500px #2eceff;
 }
+
+.playerAvgrange {
+  -webkit-appearance: none;
+  outline: none;
+  overflow: hidden;
+  width: 150px;
+  height: 10px;
+  border-radius: 30px;
+  border: 2px solid #005eba;
+  box-shadow: inset 1px 1px 5px 2px rgb(119, 119, 119);
+}
+.playerAvgrange:hover::-webkit-slider-thumb {
+  background: #56e227;
+  box-shadow: -500px 0 0 500px #56e227;
+}
+.playerAvgrange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 0px;
+  height: 0px;
+  background: #56e227;
+  border-right: 6px solid #56e227;
+  box-shadow: -500px 0 0 500px #56e227;
+}
+.playerdetailrange {
+  margin-top: 0.5rem;
+  -webkit-appearance: none;
+  outline: none;
+  overflow: hidden;
+  width: 150px;
+  height: 10px;
+  border-radius: 30px;
+  border: 2px solid #005eba;
+  box-shadow: inset 1px 1px 5px 2px rgb(119, 119, 119);
+}
+.playerdetailrange:hover::-webkit-slider-thumb {
+  background: #56e227;
+  box-shadow: -500px 0 0 500px #56e227;
+}
+.playerdetailrange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 0px;
+  height: 0px;
+  background: #56e227;
+  border-right: 6px solid #56e227;
+  box-shadow: -500px 0 0 500px #56e227;
+}
+.playermodal {
+  height: 435px;
+  width: 630px;
+}
+.teammodal {
+  height: 435px;
+  width: 630px;
+}

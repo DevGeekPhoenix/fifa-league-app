@@ -82,17 +82,6 @@ const AddPlayerForm = ({ submitPlayer }) => {
           />
         </div>
         <div className=" flex flex-wrap p-1">
-          <label htmlFor="datepicker">Choose Player's BirthDay</label>
-          <span>
-            <DatePicker
-              id="datepicker"
-              className="ml-56"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-          </span>
-        </div>
-        <div className=" flex flex-wrap p-1">
           <label htmlFor="Position" className="">
             Position
           </label>
@@ -119,6 +108,17 @@ const AddPlayerForm = ({ submitPlayer }) => {
           />
         </div>
 
+        <div className=" flex flex-wrap p-1">
+          <label htmlFor="datepicker">Choose Player's BirthDay</label>
+          <span>
+            <DatePicker
+              id="datepicker"
+              className="ml-56"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+            />
+          </span>
+        </div>
         <div className="  p-1">
           <input
             className="w-full mb-2"

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import PlayerModal from "./PlayerModal";
+import CoachModal from "./CoachModal";
 import React, { useState } from "react";
 
 const mapStateToProps = ({ database }) => ({ database });
@@ -7,38 +7,40 @@ const mapStateToProps = ({ database }) => ({ database });
 const mapDispatchToProps = (dispatch) => {
   return {};
 };
-const PlayersCard = (props) => {
+
+const CoachesCard = (props) => {
   const [modalState, setmodalState] = useState({
     isDisplayModal: false,
-    selectPlayer: null,
+    selectCoach: null,
   });
+
   console.log(props.database);
 
-  if (!Array.isArray(props.database.players)) return <p>Loading...</p>;
+  if (!Array.isArray(props.database.coaches)) return <p>Loading...</p>;
 
   return (
     <>
       <div className="overflow-y-scroll h-96 mt-4 w-72">
-        {props.database.players.map((player, i) => {
+        {props.database.coaches.map((coach, i) => {
           return (
             <div
               key={i}
               onClick={() =>
-                setmodalState({ isDisplayModal: true, selectPlayer: player })
+                setmodalState({ isDisplayModal: true, selectCoach: coach })
               }
               onClickCapture={() => setmodalState({ isDisplayModal: false })}
               className="flex flex-wrap min-w-fit	cursor-pointer text-[#ffff8d] bg-[#0d9fa7] h-28 w-64 rounded m-2"
             >
               <div className="p-2">
-                <p className="">{`${player.name} `}</p>
-                <p>{`${player.playerPosition} `}</p>
-                <p>{`${player.playerCurrentTeam} `}</p>
-                <p>{`${player.dateOfBirth} `}</p>
+                <p className="">{`${coach.name} `}</p>
+                <p>{`${coach.coachNationality} `}</p>
+                <p>{`${coach.coachCurrentTeam} `}</p>
+                <p>{`${coach.dateOfBirth} `}</p>
               </div>
-              <div className="">
+              <div>
                 <img
                   className="rounded-full h-24 mt-2 min-w-fit	 "
-                  src={`${player.playerImg} `}
+                  src={`${coach.coachImg} `}
                 />
               </div>
             </div>
@@ -46,12 +48,12 @@ const PlayersCard = (props) => {
         })}
       </div>
       <div className="absolute top-40 left-80">
-        {modalState.isDisplayModal && modalState.selectPlayer && (
-          <PlayerModal player={modalState.selectPlayer} />
+        {modalState.isDisplayModal && modalState.selectCoach && (
+          <CoachModal coach={modalState.selectCoach} />
         )}
       </div>
     </>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayersCard);
+export default connect(mapStateToProps, mapDispatchToProps)(CoachesCard);

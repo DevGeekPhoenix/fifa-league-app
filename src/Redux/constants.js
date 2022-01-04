@@ -1,3 +1,9 @@
 export const ADD_TEAM = "ADD_TEAM";
 export const ADD_PLAYER = "ADD_PLAYER";
 export const ADD_COACH = "ADD_COACH";
+export const TEAM_SEARCH = "TEAM_SEARCH";
+export const PLAYER_SEARCH = "PLAYER_SEARCH";
+export const COACH_SEARCH = "COACH_SEARCH";
+export const TEAM_TYPE_FILTER = "TEAM_TYPE_FILTER";
+export const PLAYER_POSITION_SEARCH = "PLAYER_POSITION_SEARCH";
+export const COACH_TEAM_SEARCH = "COACH_TEAM_SEARCH";

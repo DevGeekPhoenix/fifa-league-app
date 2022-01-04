@@ -2,7 +2,11 @@ import { connect } from "react-redux";
 import CoachModal from "./CoachModal";
 import React, { useState } from "react";
 
-const mapStateToProps = ({ database }) => ({ database });
+const mapStateToProps = ({ database, coachSearchQuery, coachTeamSearch }) => ({
+  database,
+  coachSearchQuery,
+  coachTeamSearch,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {};
@@ -18,10 +22,25 @@ const CoachesCard = (props) => {
 
   if (!Array.isArray(props.database.coaches)) return <p>Loading...</p>;
 
+  const displayedCoaches =
+    props.coachSearchQuery === "" && props.coachTeamSearch === ""
+      ? props.database.coaches
+      : props.database.coaches
+          .filter((coach) => {
+            return coach.name
+              .toLowerCase()
+              .includes(props.coachSearchQuery.toLowerCase());
+          })
+          .filter((coach) => {
+            return coach.coachCurrentTeam
+              .toLowerCase()
+              .includes(props.coachTeamSearch.toLowerCase());
+          });
+
   return (
     <>
       <div className="overflow-y-scroll h-96 mt-4 w-72">
-        {props.database.coaches.map((coach, i) => {
+        {displayedCoaches.map((coach, i) => {
           return (
             <div
               key={i}

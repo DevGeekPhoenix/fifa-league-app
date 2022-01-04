@@ -1,6 +1,23 @@
-import { ADD_PLAYER, ADD_TEAM, ADD_COACH } from "./constants";
+import { State } from "@amcharts/amcharts5/.internal/core/util/States";
+import {
+  ADD_PLAYER,
+  ADD_TEAM,
+  ADD_COACH,
+  TEAM_SEARCH,
+  PLAYER_SEARCH,
+  COACH_SEARCH,
+  TEAM_TYPE_FILTER,
+  PLAYER_POSITION_SEARCH,
+  COACH_TEAM_SEARCH,
+} from "./constants";
 
 const initialState = {
+  coachTeamSearch: "",
+  playerPositionSearch: "",
+  teamTypeFilter: "",
+  teamSearchQuery: "",
+  playerSearchQuery: "",
+  coachSearchQuery: "",
   database: {
     teams: [
       {
@@ -81,6 +98,42 @@ const Reducer = (state = initialState, action) => {
       obj.database.coaches.push(action.payload);
 
       return obj;
+    }
+    case TEAM_SEARCH: {
+      return {
+        ...state,
+        teamSearchQuery: action.payload,
+      };
+    }
+    case PLAYER_SEARCH: {
+      return {
+        ...state,
+        playerSearchQuery: action.payload,
+      };
+    }
+    case COACH_SEARCH: {
+      return {
+        ...state,
+        coachSearchQuery: action.payload,
+      };
+    }
+    case TEAM_TYPE_FILTER: {
+      return {
+        ...state,
+        teamTypeFilter: action.payload,
+      };
+    }
+    case PLAYER_POSITION_SEARCH: {
+      return {
+        ...state,
+        playerPositionSearch: action.payload,
+      };
+    }
+    case COACH_TEAM_SEARCH: {
+      return {
+        ...state,
+        coachTeamSearch: action.payload,
+      };
     }
     default:
       return state;

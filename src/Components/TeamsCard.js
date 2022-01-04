@@ -2,7 +2,11 @@ import { connect } from "react-redux";
 import TeamModal from "./TeamModal";
 import React, { useState } from "react";
 
-const mapStateToProps = ({ database }) => ({ database });
+const mapStateToProps = ({ database, teamSearchQuery, teamTypeFilter }) => ({
+  database,
+  teamSearchQuery,
+  teamTypeFilter,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {};
@@ -18,10 +22,28 @@ const TeamsCard = (props) => {
 
   if (!Array.isArray(props.database.teams)) return <p>Loading...</p>;
 
+  const teamType = !["Club Teams", "National Teams"].includes(
+    props.teamTypeFilter
+  )
+    ? props.database.teams
+    : props.database.teams.filter((team) => {
+        return team.teamType.value.includes(props.teamTypeFilter);
+      });
+
+  const displayedTeams =
+    props.teamSearchQuery === ""
+      ? teamType
+      : teamType.filter((team) => {
+          console.log(team);
+          console.log(props.teamSearchQuery);
+          return team.name
+            .toLowerCase()
+            .includes(props.teamSearchQuery.toLowerCase());
+        });
   return (
     <>
       <div className="overflow-y-scroll h-96 mt-4 w-72">
-        {props.database.teams.map((team, i) => {
+        {displayedTeams.map((team, i) => {
           return (
             <div
               key={i}

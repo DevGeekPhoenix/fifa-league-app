@@ -7,13 +7,63 @@ const Teams = () => {
   return (
     <div className="">
       <Navbar />
+
+      <div class="border bg-[#49494993] absolute left-80 top-28  shadow rounded-md p-2 max-w-xl h-96 w-full m-auto">
+        <h1 className="text-[#ffffff] text-xl font-bold pb-2 text-center">
+          Select A Team To Read Details
+        </h1>
+        <div class="animate-pulse flex  space-x-4">
+          <div class="rounded-full bg-[#9e9e9e] h-24 w-24"></div>
+          <div class="flex-1 space-y-6 py-8">
+            <div class="h-2 bg-[#9e9e9e] rounded"></div>
+            <div class="space-y-8">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-2"></div>
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-[#9e9e9e] rounded"></div>
+            </div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-2"></div>
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-[#9e9e9e] rounded"></div>
+            </div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-2"></div>
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-[#9e9e9e] rounded"></div>
+            </div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-2"></div>
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-[#9e9e9e] rounded"></div>
+            </div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-2"></div>
+                <div class="h-2 bg-[#9e9e9e] rounded col-span-1"></div>
+              </div>
+              <div class="h-2 bg-[#9e9e9e] rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <TeamFilterSideBar />
-      <Link to={"/teams/add"}>
-        <button className="bg-[#d21ba4] w-9/12 text-[#ffff8d] hover:bg-[#0d9fa7]  px-10 py-2">
-          Add Team
-        </button>
-      </Link>
-      <TeamsCard />
+      <div className=" flex flex-col ">
+        <Link className="w-fit" to={"/teams/add"}>
+          <button className="bg-[#494949] text-[#ffffff] hover:bg-[#9e9e9e] shadow-xl rounded-r-xl pr-24 pl-24 py-1">
+            <span className="text-xl font-bold">+</span> Add Team
+          </button>
+        </Link>
+        <TeamsCard />
+      </div>
     </div>
   );
 };

@@ -4,33 +4,37 @@ import Logo from "../logo.png";
 
 const Navbar = () => {
   return (
-    <div className="flex flex-wrap bg-[#1af5ff] justify-start drop-shadow opacity-80">
-      <Link to={"/"}>
-        <li className="list-none">
-          <img className="h-20 px-6" src={Logo} />
-        </li>
-      </Link>
-      <Link to={"/teams"}>
-        <li className="list-none px-4  py-2">
-          <p className="bg-[#005eba] text-[#e8e9e4] hover:bg-[#d21ba4] rounded-3xl px-10 py-5">
-            Teams
-          </p>
-        </li>
-      </Link>
-      <Link to={"/players"}>
-        <li className="list-none  py-2	">
-          <p className="bg-[#005eba] text-[#e8e9e4] hover:bg-[#d21ba4] rounded-3xl px-10 py-5">
-            Players
-          </p>
-        </li>
-      </Link>
-      <Link to={"/coaches"}>
-        <li className="list-none px-4 py-2	">
-          <p className="bg-[#005eba] text-[#e8e9e4] hover:bg-[#d21ba4] rounded-3xl px-10 py-5">
-            Coaches
-          </p>
-        </li>
-      </Link>
+    <div className="flex shadow-2xl	 bg-[#e8e9e4c5]">
+      <div className="flex flex-wrap">
+        <Link to={"/"}>
+          <li className="list-none drop-shadow absolute">
+            <img className="h-16  py-1 px-6" src={Logo} />
+          </li>
+        </Link>
+      </div>
+      <div className="flex m-auto drop-shadow ">
+        <Link to={"/teams"}>
+          <li className="list-none  px-4 flex  py-2">
+            <p className=" text-[#494949] bg-[#c9c9c9] hover:bg-[#9e9e9e] shadow-xl rounded-xl px-5 py-3">
+              Teams
+            </p>
+          </li>
+        </Link>
+        <Link to={"/players"}>
+          <li className="list-none  py-2	">
+            <p className="text-[#494949] bg-[#c9c9c9] hover:bg-[#9e9e9e] shadow-xl rounded-xl px-5 py-3">
+              Players
+            </p>
+          </li>
+        </Link>
+        <Link to={"/coaches"}>
+          <li className="list-none px-4 py-2	">
+            <p className="text-[#494949] bg-[#c9c9c9] hover:bg-[#9e9e9e] shadow-xl rounded-xl px-5 py-3">
+              Coaches
+            </p>
+          </li>
+        </Link>
+      </div>
     </div>
   );
 };

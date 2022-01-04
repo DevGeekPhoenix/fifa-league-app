@@ -111,22 +111,22 @@ const Modal = ({ team }) => {
     (team.teamAttackNumber + team.teamMIDFIELDNumber + team.teamDEFENSENumber) /
     3;
   return (
-    <div className="">
-      <div className="teammodal  text-sm	text-[#ffff8d] bg-[#0d9fa7]  rounded -mt-9 -ml-4">
+    <div className=" ">
+      <div className="teammodal border text-sm	text-[#c9c9c9] bg-[#494949]  rounded  -mt-3 -ml-5">
         <div>
           <img
             className="rounded-full h-44 ml-3 pt-2	 "
             src={`${team.teamImg} `}
           />
         </div>
-        <div className="mt-6 px-2 py-4">
+        <div className="mt-14 font-bold px-2 py-4">
           <p className="p-2">{`Name : ${team.name} `}</p>
           <p className="p-2">{`Country : ${team.teamCountry} `}</p>
           <p className="p-2">{`Home Stadium : ${team.teamStadium} `}</p>
           <p className="p-2">{`Date Of Foundation : ${team.dateOfFoundation} `}</p>
           <p className="p-2">{`Type : ${team.teamType.value} `}</p>
         </div>
-        <div className="absolute -top-1 left-60 text-[#000]">
+        <div className="absolute font-bold -top-1 left-60 text-[#c9c9c9]">
           <div className="flex space-x-56">
             <label htmlFor="ATTACKrange">ATTACK</label>
             <label htmlFor="ATTACKrange">{team.teamAttackNumber}</label>
@@ -160,7 +160,10 @@ const Modal = ({ team }) => {
           />
           <p className="flex justify-end">OVERALL : {overallnum.toFixed(2)}</p>
         </div>
-        <div id="chartdiv" className="absolute top-36 left-60 w-1/2 h-60"></div>
+        <div
+          id="chartdiv"
+          className="absolute top-40 rounded-full text-[#c9c9c9] left-60 w-1/2 h-80"
+        ></div>
       </div>
     </div>
   );

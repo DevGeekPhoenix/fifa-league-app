@@ -1,0 +1,21 @@
+#scrollbarstyle::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #c9c9c9;
+}
+
+#scrollbarstyle::-webkit-scrollbar {
+  border-radius: 10px;
+
+  width: 12px;
+  background-color: #c9c9c9;
+}
+
+#scrollbarstyle::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #494949;
+}
+.scrollbar {
+  height: 28rem;
+}

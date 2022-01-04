@@ -119,10 +119,13 @@
   box-shadow: -500px 0 0 500px #56e227;
 }
 .playermodal {
-  height: 435px;
-  width: 630px;
+  height: 490px;
+  width: 640px;
 }
 .teammodal {
-  height: 435px;
-  width: 630px;
+  height: 490px;
+  width: 640px;
+}
+.sidebar {
+  height: 490px;
 }

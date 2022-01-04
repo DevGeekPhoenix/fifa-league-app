@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import TeamModal from "./TeamModal";
 import React, { useState } from "react";
+import "./ScrollBar.css";
 
 const mapStateToProps = ({ database, teamSearchQuery, teamTypeFilter }) => ({
   database,
@@ -42,7 +43,10 @@ const TeamsCard = (props) => {
         });
   return (
     <>
-      <div className="overflow-y-scroll h-96 mt-4 w-72">
+      <div
+        id="scrollbarstyle"
+        className="scrollbar snap-center overflow-y-scroll float-left  mt-2 w-72"
+      >
         {displayedTeams.map((team, i) => {
           return (
             <div
@@ -51,26 +55,26 @@ const TeamsCard = (props) => {
                 setmodalState({ isDisplayModal: true, selectTeam: team })
               }
               onClickCapture={() => setmodalState({ isDisplayModal: false })}
-              className="flex flex-wrap min-w-fit text-sm	cursor-pointer text-[#ffff8d] bg-[#0d9fa7] h-28 w-64 rounded m-2"
+              className="flex flex-wrap min-w-fit text-sm	cursor-pointer 	 rounded-l-full shadow-inner	 text-[#494949] bg-[#b8bec5] h-28 w-64 rounded m-2"
             >
-              <div className="px-2 py-1">
+              <div>
+                <img
+                  className="rounded-full shadow-xl border -z-10 h-28 	 "
+                  src={`${team.teamImg} `}
+                />
+              </div>
+              <div className="font-bold	 px-2 py-1">
                 <p className="">{`${team.name} `}</p>
                 <p>{`${team.teamCountry} `}</p>
                 <p>{`${team.teamStadium} `}</p>
                 <p>{`${team.dateOfFoundation} `}</p>
                 <p>{`${team.teamType.value} `}</p>
               </div>
-              <div>
-                <img
-                  className="rounded-full h-24 ml-3 mt-2 min-w-fit	 "
-                  src={`${team.teamImg} `}
-                />
-              </div>
             </div>
           );
         })}
       </div>
-      <div className="absolute top-40 left-80">
+      <div className="absolute top-20 left-80">
         {modalState.isDisplayModal && modalState.selectTeam && (
           <TeamModal team={modalState.selectTeam} />
         )}

@@ -17,8 +17,8 @@ function App() {
         left: "0",
         bottom: "0",
         right: "0",
-        height: "100%",
-        width: "100%",
+        height: "36rem",
+        width: "78.9rem",
         zIndex: "-1",
       }}
     >

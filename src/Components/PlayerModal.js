@@ -141,12 +141,12 @@ const PlayerModal = ({ player }) => {
 
   return (
     <>
-      <div id="chartdiv" className="absolute top-32 -ml-7  w-1/2 h-72"></div>
-      <div className="playermodal text-sm text-[#ffff8d] bg-[#0d9fa7] rounded -mt-9 -ml-4">
+      <div id="chartdiv" className="absolute top-44 -ml-7  w-1/2 h-72"></div>
+      <div className="teammodal border text-sm	text-[#c9c9c9] bg-[#494949]  rounded  -mt-3 -ml-5">
         <div className="">
           <div>
             <img
-              className="rounded-full h-40 ml-5 pt-2	 "
+              className="rounded-full h-44 ml-3 pt-2	 "
               src={`${player.playerImg} `}
             />
             <input
@@ -160,10 +160,10 @@ const PlayerModal = ({ player }) => {
               OVERALL : {playerAvg.toFixed(2)}
             </label>
           </div>
-          <div className="absolute text-2xl font-extrabold	 text-[#005eba] left-72 -top-6">
+          <div className="absolute text-2xl font-extrabold mt-5	 text-[#c9c9c9] left-72 -top-6">
             <span>{player.name} Attributes</span>
           </div>
-          <div className="absolute top-4 left-72 text-[#ffff8d]">
+          <div className="absolute top-12 left-72 text-[#c9c9c9]">
             <div className="flex space-x-1">
               <label htmlFor="OffensiveAwarenessrange">
                 Offensive Awareness

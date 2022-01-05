@@ -22,20 +22,6 @@ const AddPlayerForm = ({ submitPlayer }) => {
   const [playerPositionInputValue, setplayerPositionInputValue] = useState("");
   const [playerCurrentTeamInputValue, setplayerCurrentTeamInputValue] =
     useState("");
-  var monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   const onsubmit = () => {
     submitPlayer({
@@ -67,9 +53,9 @@ const AddPlayerForm = ({ submitPlayer }) => {
   return (
     <div className="">
       <Navbar />
-      <form className="flex flex-col p-5 absolute left-1/4 w-1/2 mt-2 bg-[#0d9fa7]">
-        <div className="flex flex-wrap p-1">
-          <label htmlFor="PlayerName" className="mr-4">
+      <div className="flex flex-col p-2 absolute font-bold rounded w-5/12 mt-2 h-5/6 justify-center left-16 border text-[#c9c9c9] bg-[#494949]">
+        <div className="flex flex-wrap flex-col p-1">
+          <label htmlFor="PlayerName" className="m-auto pb-2">
             Player Full Name
           </label>
           <input
@@ -77,12 +63,12 @@ const AddPlayerForm = ({ submitPlayer }) => {
             onChange={(e) => setplayerNameInputValue(e.target.value)}
             id="PlayerName"
             type="text"
-            className="w-6/12 absolute right-2"
+            className="text-[#494949] placeholder-[#494949] text-center bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl w-full py-1"
             placeholder="Write Player Full Name"
           />
         </div>
-        <div className=" flex flex-wrap p-1">
-          <label htmlFor="Position" className="">
+        <div className=" flex flex-wrap flex-col p-1">
+          <label htmlFor="Position" className="m-auto pb-2">
             Position
           </label>
           <input
@@ -90,12 +76,12 @@ const AddPlayerForm = ({ submitPlayer }) => {
             onChange={(e) => setplayerPositionInputValue(e.target.value)}
             id="Position"
             type="text"
-            className="w-6/12 absolute right-2"
+            className="text-[#494949] placeholder-[#494949] text-center bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl w-full py-1"
             placeholder="Write Player Position"
           />
         </div>
-        <div className=" flex flex-wrap p-1">
-          <label htmlFor="Currentteam" className="">
+        <div className=" flex flex-wrap flex-col p-1">
+          <label htmlFor="Currentteam" className="m-auto pb-2">
             Current Team
           </label>
           <input
@@ -103,39 +89,47 @@ const AddPlayerForm = ({ submitPlayer }) => {
             onChange={(e) => setplayerCurrentTeamInputValue(e.target.value)}
             id="Currentteam"
             type="text"
-            className="w-6/12 absolute right-2"
+            className="text-[#494949] placeholder-[#494949] text-center bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl w-full py-1"
             placeholder="Write Player Current Team"
           />
         </div>
 
-        <div className=" flex flex-wrap p-1">
-          <label htmlFor="datepicker">Choose Player's BirthDay</label>
+        <div className=" flex flex-wrap flex-col mt-40 p-1">
+          <label className="m-auto pb-2" htmlFor="datepicker">
+            Choose Player's BirthDay
+          </label>
           <span>
             <DatePicker
               id="datepicker"
-              className="ml-56"
+              className="text-[#494949] pl-20 flex flex-wrap m-auto bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl w-1/2 py-1"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
             />
           </span>
         </div>
-        <div className="  p-1">
+      </div>
+      <div className="flex flex-col p-5 absolute font-bold rounded w-5/12	 h-5/6 mt-2 justify-center right-16 border text-[#c9c9c9] bg-[#494949]">
+        <div className=" flex flex-wrap flex-col p-1">
+          <label htmlFor="Imageu" className="m-auto pb-2">
+            Input Player Image URL{" "}
+          </label>
           <input
-            className="w-full mb-2"
+            id="Imageu"
+            className="text-[#494949] placeholder-[#494949] text-center bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl mt-3 w-full py-1"
             placeholder="Input Player Image URL"
             type="text"
             value={playerImgInputValue}
             onChange={(e) => setplayerImgInputValue(e.target.value)}
           />
-          <img className="h-40 m-auto" src={playerImgInputValue} />
+          <img className="h-40 mt-20 m-auto" src={playerImgInputValue} />
           <button
             onClick={() => onsubmit()}
-            className="bg-[#d21ba4] w-full text-[#ffff8d] hover:bg-[#8a0e6b]   py-2"
+            className="bg-[#ffffff] text-[#494949] mt-28 hover:bg-[#c9c9c9] shadow-xl w-full rounded-xl pr-24 pl-24 py-1"
           >
             Add Player
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

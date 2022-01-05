@@ -119,8 +119,8 @@ const Modal = ({ team }) => {
             src={`${team.teamImg} `}
           />
         </div>
-        <div className="mt-14 font-bold px-2 py-4">
-          <p className="p-2">{`Name : ${team.name} `}</p>
+        <p className="p-4 font-bold text-2xl">{`${team.name} `}</p>
+        <div className="mt-6 font-bold px-2 py-4">
           <p className="p-2">{`Country : ${team.teamCountry} `}</p>
           <p className="p-2">{`Home Stadium : ${team.teamStadium} `}</p>
           <p className="p-2">{`Date Of Foundation : ${team.dateOfFoundation} `}</p>

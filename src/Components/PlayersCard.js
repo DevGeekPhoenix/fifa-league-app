@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import PlayerModal from "./PlayerModal";
 import React, { useState } from "react";
+import "./ScrollBar.css";
 
 const mapStateToProps = ({
   database,
@@ -43,7 +44,10 @@ const PlayersCard = (props) => {
 
   return (
     <>
-      <div className="overflow-y-scroll h-96 mt-4 w-72">
+      <div
+        id="scrollbarstyle"
+        className="scrollbar  overflow-y-scroll   mt-2 w-72"
+      >
         {displayedPlayers.map((player, i) => {
           return (
             <div
@@ -52,25 +56,25 @@ const PlayersCard = (props) => {
                 setmodalState({ isDisplayModal: true, selectPlayer: player })
               }
               onClickCapture={() => setmodalState({ isDisplayModal: false })}
-              className="flex flex-wrap min-w-fit	cursor-pointer text-[#ffff8d] bg-[#0d9fa7] h-28 w-64 rounded m-2"
+              className="flex flex-wrap min-w-fit text-sm	cursor-pointer 	 rounded-l-full shadow-inner	 text-[#494949] bg-[#b8bec5] h-28 w-64 rounded m-2"
             >
-              <div className="p-2">
+              <div className="">
+                <img
+                  className="rounded-full shadow-xl border -z-10 h-28"
+                  src={`${player.playerImg} `}
+                />
+              </div>
+              <div className="font-bold	 px-1 py-3.5">
                 <p className="">{`${player.name} `}</p>
                 <p>{`${player.playerPosition} `}</p>
                 <p>{`${player.playerCurrentTeam} `}</p>
                 <p>{`${player.dateOfBirth} `}</p>
               </div>
-              <div className="">
-                <img
-                  className="rounded-full h-24 mt-2 min-w-fit	 "
-                  src={`${player.playerImg} `}
-                />
-              </div>
             </div>
           );
         })}
       </div>
-      <div className="absolute top-40 left-80">
+      <div className="absolute top-20 left-80">
         {modalState.isDisplayModal && modalState.selectPlayer && (
           <PlayerModal player={modalState.selectPlayer} />
         )}

@@ -9,7 +9,6 @@ const mapStateToProps = ({ database }) => ({
 const mapDispatchToProps = (dispatch) => {
   return {};
 };
-
 const TeamControl = (props) => {
   return (
     <div>
@@ -79,7 +78,7 @@ const TeamControl = (props) => {
                   );
                 })}
                 <td
-                  colspan="6"
+                  colSpan="6"
                   className=" w-full border-gray-700 p-4 pr-8 hover:bg-[#8d9db9] text-gray-400"
                 >
                   <Link to={"add"}>

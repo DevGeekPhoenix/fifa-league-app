@@ -1,31 +1,48 @@
 import { connect } from "react-redux";
 import React, { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useParams, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import Dropdown from "react-dropdown";
+import { editteam } from "../Redux/TeamSearchActions";
 
 const mapStateToProps = ({ database }) => ({
   database,
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    submitEditedTeam: (obj) => dispatch(editteam(obj)),
+  };
 };
 
-const EditTeam = (props) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [teamImgInputValue, setteamImgInputValue] = useState(
-    props.database.teams.teamImg
+const EditTeam = ({ database, submitEditedTeam }) => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const team = database.teams.find((team) => team.teamID === id);
+  const [startDate, setStartDate] = useState();
+  const [teamImgInputValue, setteamImgInputValue] = useState(team.teamImg);
+  const [teamNameInputValue, setteamNameInputValue] = useState(team.name);
+  const [teamCountryInputValue, setteamCountryInputValue] = useState(
+    team.teamCountry
   );
-  const [teamNameInputValue, setteamNameInputValue] = useState(
-    props.database.teams.name
+  const [teamStadiumInputValue, setteamStadiumInputValue] = useState(
+    team.teamStadium
   );
-  console.log(props.database.teams.name);
-  const [teamCountryInputValue, setteamCountryInputValue] = useState();
-  const [teamStadiumInputValue, setteamStadiumInputValue] = useState();
-  const [teamTypeInputValue, setteamTypeInputValue] = useState();
+  const [teamTypeInputValue, setteamTypeInputValue] = useState(
+    team.teamType.value
+  );
+  const onsubmit = () => {
+    submitEditedTeam({
+      name: teamNameInputValue,
+      teamID: team.teamID,
+      teamCountry: teamCountryInputValue,
+      teamStadium: teamStadiumInputValue,
+      teamImg: teamImgInputValue,
+      teamType: teamTypeInputValue,
+    });
+    navigate("/dashboard/teamcontrol");
+  };
   const options = ["Club Teams", "National Teams"];
-
   return (
     <div>
       <div className="absolute h-full w-4/5 right-0 bg-gray-800">
@@ -37,7 +54,7 @@ const EditTeam = (props) => {
         <div className="flex flex-col p-2 absolute font-bold rounded w-5/12 mt-2 h-5/6 justify-center left-5 top-8 text-[#c9c9c9] bg-gray-800">
           <div className="flex flex-wrap flex-col p-1">
             <label htmlFor="teamName" className="m-auto pb-2">
-              Team Name
+              Edit Team Name
             </label>
             <div className="">
               <input
@@ -52,7 +69,7 @@ const EditTeam = (props) => {
           </div>
           <div className=" flex flex-wrap flex-col p-1">
             <label htmlFor="teamcountry" className="m-auto pb-2">
-              Team Country:
+              Edit Team Country:
             </label>
             <div className=" 	">
               <input
@@ -67,7 +84,7 @@ const EditTeam = (props) => {
           </div>
           <div className=" flex flex-wrap flex-col p-1">
             <label htmlFor="teamstadium" className="m-auto pb-2">
-              Team Stadium
+              Edit Team Stadium
             </label>
             <input
               value={teamStadiumInputValue}
@@ -80,7 +97,7 @@ const EditTeam = (props) => {
           </div>
           <div className=" flex flex-wrap flex-col mt-40 p-1">
             <label className="m-auto pb-2" htmlFor="datepicker">
-              Choose Date Of Foundation
+              Edit Date Of Foundation
             </label>
             <span>
               <DatePicker
@@ -96,7 +113,7 @@ const EditTeam = (props) => {
         <div className="flex flex-col p-5 absolute font-bold rounded w-5/12	 h-5/6  justify-center right-5 top-8 text-[#c9c9c9] bg-gray-800">
           <div className=" flex flex-wrap flex-col p-1">
             <label className="m-auto pb-2" htmlFor="datepicker">
-              Choose Team Type
+              Edit Team Type
             </label>
             <span>
               <Dropdown
@@ -109,7 +126,7 @@ const EditTeam = (props) => {
           </div>
           <div className="  p-1">
             <label htmlFor="Imageu" className="m-auto pb-2">
-              Input Team Logo URL
+              Edit Team Logo URL
             </label>
             <input
               className="placeholder-[#494949] text-center	 text-[#494949]  bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl mt-3 w-full py-1"
@@ -133,7 +150,7 @@ const EditTeam = (props) => {
             }
             className="bg-[#ffffff] text-[#494949]  hover:bg-[#c9c9c9] shadow-xl w-full rounded-xl pr-24 pl-24 py-1"
           >
-            Add Team
+            Edit Team
           </button>
         </div>
       </div>

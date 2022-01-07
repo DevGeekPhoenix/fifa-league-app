@@ -8,6 +8,7 @@ import {
   TEAM_TYPE_FILTER,
   PLAYER_POSITION_SEARCH,
   COACH_TEAM_SEARCH,
+  EDIT_TEAM,
 } from "./constants";
 
 const initialState = {
@@ -25,7 +26,7 @@ const initialState = {
           "T-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
         teamCountry: " Munich, Germany",
         teamStadium: "Allianz Arena",
-        dateOfFoundation: "1900",
+        dateOfFoundation: new Date().toISOString().substring(0, 10),
         teamType: { value: "Club Teams" },
         teamAttackNumber: 99,
         teamMIDFIELDNumber: 99,
@@ -138,6 +139,17 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         coachTeamSearch: action.payload,
+      };
+    }
+    case EDIT_TEAM: {
+      return {
+        ...state,
+        database: {
+          ...state.database,
+          teams: state.database.teams.map((team) =>
+            team.teamID === action.payload.teamID ? action.payload : team
+          ),
+        },
       };
     }
     default:

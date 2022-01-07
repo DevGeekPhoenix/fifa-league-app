@@ -108,7 +108,6 @@ const AddTeamForm = ({ submitTeam }) => {
           </label>
           <span>
             <Dropdown
-              className=" text-[#494949] bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl mx-4 px-2 py-1"
               options={options}
               onChange={setteamTypeInputValue}
               value={teamTypeInputValue}
@@ -131,7 +130,15 @@ const AddTeamForm = ({ submitTeam }) => {
           <img className="h-40 my-10 mx-auto" src={teamImgInputValue} />
         </div>
         <button
-          onClick={() => onsubmit()}
+          onClick={() =>
+            !teamTypeInputValue ||
+            !teamImgInputValue ||
+            !teamNameInputValue ||
+            !teamCountryInputValue ||
+            !teamStadiumInputValue
+              ? alert("Please Fill All Fields")
+              : onsubmit()
+          }
           className="bg-[#ffffff] text-[#494949]  hover:bg-[#c9c9c9] shadow-xl w-full rounded-xl pr-24 pl-24 py-1"
         >
           Add Team

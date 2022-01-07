@@ -35,6 +35,15 @@ const Navbar = () => {
           </li>
         </Link>
       </div>
+      <div>
+        <Link to={"/dashboard/login"}>
+          <li className="list-none px-4 py-2	">
+            <p className="text-[#494949] bg-[#c9c9c9] hover:bg-[#9e9e9e] shadow-xl rounded-xl px-5 py-3">
+              DashBoard
+            </p>
+          </li>
+        </Link>
+      </div>
     </div>
   );
 };

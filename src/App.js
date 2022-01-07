@@ -7,6 +7,12 @@ import Background from "./BackGround.png";
 import AddPlayerForm from "./Pages/AddPlayerForm";
 import AddTeamForm from "./Pages/AddTeamForm";
 import AddCoachForm from "./Pages/AddCoachForm";
+import Dashboard from "./Pages/Dashboard";
+import DashboardLogIn from "./Pages/DashboardLogIn";
+import TeamControl from "./Pages/TeamControl";
+import PlayerControl from "./Pages/PlayerControl";
+import CoachControl from "./Pages/CoachControl";
+
 function App() {
   return (
     <div
@@ -30,6 +36,12 @@ function App() {
         <Route path="/players/add" element={<AddPlayerForm />} />
         <Route path="/teams/add" element={<AddTeamForm />} />
         <Route path="/coaches/add" element={<AddCoachForm />} />
+        <Route path="dashboard/login" element={<DashboardLogIn />} />
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route path="teamcontrol" element={<TeamControl />} />
+          <Route path="playercontrol" element={<PlayerControl />} />
+          <Route path="coachcontrol" element={<CoachControl />} />
+        </Route>
       </Routes>
     </div>
   );

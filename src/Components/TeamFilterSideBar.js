@@ -1,9 +1,9 @@
+import "../App.css";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { teamsearch, teamtypefilter } from "../Redux/TeamSearchActions";
 import Dropdown from "react-dropdown";
 import "./InputStyle.css";
-import "./TeamFilterSideBar.css";
 
 const options = ["All", "Club Teams", "National Teams"];
 
@@ -41,7 +41,6 @@ const FilterSideBar = (props) => {
       </p>
       <div>
         <Dropdown
-          className=" text-[#494949] bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl mx-4 px-5 py-3"
           options={options}
           onChange={(options) => props.onTypeChange(options.value)}
           value={props.teamTypeFilter}

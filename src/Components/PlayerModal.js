@@ -445,7 +445,6 @@ const PlayerModal = ({ player }) => {
                 <label htmlFor="Staminarange">{player.playerStamina}</label>
               </div>
             </div>
-            {/* <p className="flex justify-end">OVERALL : {overallnum.toFixed(2)}</p> */}
           </div>
           <div
             id="chartdiv"

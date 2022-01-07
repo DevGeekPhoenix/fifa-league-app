@@ -1,4 +1,3 @@
-import { State } from "@amcharts/amcharts5/.internal/core/util/States";
 import {
   ADD_PLAYER,
   ADD_TEAM,
@@ -22,6 +21,8 @@ const initialState = {
     teams: [
       {
         name: "Bayern Munich ",
+        teamID:
+          "T-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
         teamCountry: " Munich, Germany",
         teamStadium: "Allianz Arena",
         dateOfFoundation: "1900",
@@ -36,6 +37,8 @@ const initialState = {
     players: [
       {
         name: "Thomas Müller",
+        playerID:
+          "P-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
         playerPosition: "Forward",
         playerCurrentTeam: "Bayern Munich",
         dateOfBirth: "September 13, 1989",
@@ -63,6 +66,8 @@ const initialState = {
     coaches: [
       {
         name: "Julian Nagelsmann",
+        coachID:
+          "C-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
         dateOfBirth: "23 July 1987",
         coachNationality: "German",
         coachCurrentTeam: "Bayern Munich",

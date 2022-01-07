@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@amcharts/amcharts5": "^5.0.20",
+    "@heroicons/react": "^1.0.5",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -15,6 +16,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "react-table": "^7.7.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",

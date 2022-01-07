@@ -26,6 +26,8 @@ const AddPlayerForm = ({ submitPlayer }) => {
   const onsubmit = () => {
     submitPlayer({
       name: playerNameInputValue,
+      playerID:
+        "P-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
       dateOfBirth: new Date(startDate).toISOString().substring(0, 10),
       playerPosition: playerPositionInputValue,
       playerCurrentTeam: playerCurrentTeamInputValue,

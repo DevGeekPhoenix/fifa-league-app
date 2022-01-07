@@ -57,11 +57,6 @@ const Teams = () => {
 
       <TeamFilterSideBar />
       <div className=" flex flex-col ">
-        <Link className="w-fit" to={"/teams/add"}>
-          <button className="bg-[#494949] text-[#ffffff] hover:bg-[#9e9e9e] shadow-xl rounded-r-xl pr-24 pl-24 py-1">
-            <span className="text-xl font-bold">+</span> Add Team
-          </button>
-        </Link>
         <TeamsCard />
       </div>
     </div>

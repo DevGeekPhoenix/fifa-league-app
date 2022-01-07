@@ -26,6 +26,8 @@ const AddCoachForm = ({ submitCoach }) => {
   const onsubmit = () => {
     submitCoach({
       name: coachNameInputValue,
+      coachID:
+        "C-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
       dateOfBirth: new Date(startDate).toISOString().substring(0, 10),
       coachNationality: coachNationalityInputValue,
       coachCurrentTeam: coachCurrentTeamInputValue,

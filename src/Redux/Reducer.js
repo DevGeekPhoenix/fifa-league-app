@@ -9,6 +9,8 @@ import {
   PLAYER_POSITION_SEARCH,
   COACH_TEAM_SEARCH,
   EDIT_TEAM,
+  EDIT_PLAYER,
+  EDIT_COACH,
 } from "./constants";
 
 const initialState = {
@@ -26,7 +28,7 @@ const initialState = {
           "T-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
         teamCountry: " Munich, Germany",
         teamStadium: "Allianz Arena",
-        dateOfFoundation: new Date().toISOString().substring(0, 10),
+        dateOfFoundation: "1990",
         teamType: { value: "Club Teams" },
         teamAttackNumber: 99,
         teamMIDFIELDNumber: 99,
@@ -148,6 +150,30 @@ const Reducer = (state = initialState, action) => {
           ...state.database,
           teams: state.database.teams.map((team) =>
             team.teamID === action.payload.teamID ? action.payload : team
+          ),
+        },
+      };
+    }
+    case EDIT_PLAYER: {
+      return {
+        ...state,
+        database: {
+          ...state.database,
+          players: state.database.players.map((player) =>
+            player.playerID === action.payload.playerID
+              ? action.payload
+              : player
+          ),
+        },
+      };
+    }
+    case EDIT_COACH: {
+      return {
+        ...state,
+        database: {
+          ...state.database,
+          coaches: state.database.coaches.map((coach) =>
+            coach.coachID === action.payload.coachID ? action.payload : coach
           ),
         },
       };

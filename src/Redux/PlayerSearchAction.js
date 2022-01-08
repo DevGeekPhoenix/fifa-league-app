@@ -1,4 +1,8 @@
-import { PLAYER_SEARCH, PLAYER_POSITION_SEARCH } from "./constants";
+import {
+  PLAYER_SEARCH,
+  PLAYER_POSITION_SEARCH,
+  EDIT_PLAYER,
+} from "./constants";
 
 export const playersearch = (playerSearchQuery) => {
   return {
@@ -10,5 +14,11 @@ export const playerpositionsearch = (playerPositionSearch) => {
   return {
     type: PLAYER_POSITION_SEARCH,
     payload: playerPositionSearch,
+  };
+};
+export const editplayer = (player) => {
+  return {
+    type: EDIT_PLAYER,
+    payload: player,
   };
 };

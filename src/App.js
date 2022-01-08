@@ -13,6 +13,8 @@ import TeamControl from "./Pages/TeamControl";
 import PlayerControl from "./Pages/PlayerControl";
 import CoachControl from "./Pages/CoachControl";
 import EditTeam from "./Pages/EditTeam";
+import EditPlayer from "./Pages/EditPlayer";
+import EditCoach from "./Pages/EditCoach";
 
 function App() {
   return (
@@ -34,16 +36,20 @@ function App() {
         <Route path="/players" element={<Players />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/coaches" element={<Coaches />} />
-        <Route path="/players/add" element={<AddPlayerForm />} />
-        <Route path="/coaches/add" element={<AddCoachForm />} />
         <Route path="dashboard/login" element={<DashboardLogIn />} />
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="teamcontrol" element={<TeamControl />}>
             <Route path="add" element={<AddTeamForm />} />
             <Route path="edit/:id" element={<EditTeam />} />
           </Route>
-          <Route path="playercontrol" element={<PlayerControl />} />
-          <Route path="coachcontrol" element={<CoachControl />} />
+          <Route path="playercontrol" element={<PlayerControl />}>
+            <Route path="add" element={<AddPlayerForm />} />
+            <Route path="edit/:id" element={<EditPlayer />} />
+          </Route>
+          <Route path="coachcontrol" element={<CoachControl />}>
+            <Route path="add" element={<AddCoachForm />} />
+            <Route path="edit/:id" element={<EditCoach />} />
+          </Route>
         </Route>
       </Routes>
     </div>

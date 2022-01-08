@@ -28,13 +28,12 @@ const EditTeam = ({ database, submitEditedTeam }) => {
   const [teamStadiumInputValue, setteamStadiumInputValue] = useState(
     team.teamStadium
   );
-  const [teamTypeInputValue, setteamTypeInputValue] = useState(
-    team.teamType.value
-  );
+  const [teamTypeInputValue, setteamTypeInputValue] = useState("");
   const onsubmit = () => {
     submitEditedTeam({
       name: teamNameInputValue,
       teamID: team.teamID,
+      dateOfFoundation: new Date(startDate).toISOString().substring(0, 10),
       teamCountry: teamCountryInputValue,
       teamStadium: teamStadiumInputValue,
       teamImg: teamImgInputValue,
@@ -141,6 +140,7 @@ const EditTeam = ({ database, submitEditedTeam }) => {
           <button
             onClick={() =>
               !teamTypeInputValue ||
+              !startDate ||
               !teamImgInputValue ||
               !teamNameInputValue ||
               !teamCountryInputValue ||

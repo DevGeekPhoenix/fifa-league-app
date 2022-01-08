@@ -54,11 +54,6 @@ const Players = () => {
         </div>
       </div>
       <PlayerFilterSideBar />
-      <Link to={"/players/add"}>
-        <button className="bg-[#494949] text-[#ffffff] hover:bg-[#9e9e9e] shadow-xl rounded-r-xl pr-20 pl-24 py-1">
-          <span className="text-xl font-bold">+</span> Add Players
-        </button>
-      </Link>
       <PlayersCard />
     </div>
   );

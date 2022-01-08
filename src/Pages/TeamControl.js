@@ -1,6 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
 
 const mapStateToProps = ({ database }) => ({
   database,
@@ -43,7 +42,7 @@ const TeamControl = (props) => {
                 {props.database.teams.map((team, i) => {
                   return (
                     <tr key={team.teamID}>
-                      <td className="border-b border-r  border-gray-700 p-4 pr- text-xs text-gray-400">
+                      <td className="border-b border-r  border-gray-700 p-3 text-xs text-gray-400">
                         {team.teamID}
                       </td>
                       <td className="border-b border-r border-gray-700   text-gray-400">

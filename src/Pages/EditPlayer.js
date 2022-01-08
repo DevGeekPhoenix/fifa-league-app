@@ -1,54 +1,41 @@
-import DatePicker from "react-datepicker";
-import { Outlet, Link } from "react-router-dom";
-import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import "react-datepicker/dist/react-datepicker.css";
-import { addPlayer } from "../Redux/Players/PlayersActions";
-const mapStateToProps = ({ database }) => ({ database });
+import React, { useState } from "react";
+import { Outlet, Link, useParams, useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import { editplayer } from "../Redux/PlayerSearchAction";
+
+const mapStateToProps = ({ database }) => ({
+  database,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitPlayer: (obj) => dispatch(addPlayer(obj)),
+    submitEditedPlayer: (obj) => dispatch(editplayer(obj)),
   };
 };
 
-const AddPlayerForm = ({ submitPlayer }) => {
+const EditPlayer = ({ database, submitEditedPlayer }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
-
-  const [startDate, setStartDate] = useState(new Date());
-  const [playerImgInputValue, setplayerImgInputValue] = useState("");
-  const [playerNameInputValue, setplayerNameInputValue] = useState("");
-  const [playerPositionInputValue, setplayerPositionInputValue] = useState("");
+  const player = database.players.find((player) => player.playerID === id);
+  const [startDate, setStartDate] = useState();
+  const [playerImgInputValue, setplayerImgInputValue] = useState(
+    player.playerImg
+  );
+  const [playerNameInputValue, setplayerNameInputValue] = useState(player.name);
+  const [playerPositionInputValue, setplayerPositionInputValue] = useState(
+    player.playerPosition
+  );
   const [playerCurrentTeamInputValue, setplayerCurrentTeamInputValue] =
-    useState("");
-
+    useState(player.playerCurrentTeam);
   const onsubmit = () => {
-    submitPlayer({
+    submitEditedPlayer({
       name: playerNameInputValue,
-      playerID:
-        "P-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
+      playerID: player.playerID,
       dateOfBirth: new Date(startDate).toISOString().substring(0, 10),
       playerPosition: playerPositionInputValue,
       playerCurrentTeam: playerCurrentTeamInputValue,
       playerImg: playerImgInputValue,
-      playerOffensiveAwareness: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerBallControl: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerDribbling: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerTightPossession: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerLowPass: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerLoftedPass: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerFinishing: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerHeading: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerSetPieceTaking: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerCurl: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerSpeed: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerAcceleration: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerKickingPower: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerJump: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerPhysicalContact: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerBalance: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerStamina: Math.floor(Math.random() * (95 - 55 + 1) + 55),
     });
     navigate("/dashboard/playercontrol");
   };
@@ -62,7 +49,7 @@ const AddPlayerForm = ({ submitPlayer }) => {
       <div className="flex flex-col p-2 absolute font-bold rounded w-5/12 mt-8 h-5/6 justify-center left-5 top-8 text-[#c9c9c9] bg-gray-800">
         <div className="flex flex-wrap flex-col p-1">
           <label htmlFor="PlayerName" className="m-auto pb-2">
-            Player Full Name
+            Edit Player Full Name
           </label>
           <input
             value={playerNameInputValue}
@@ -75,7 +62,7 @@ const AddPlayerForm = ({ submitPlayer }) => {
         </div>
         <div className=" flex flex-wrap flex-col p-1">
           <label htmlFor="Position" className="m-auto pb-2">
-            Position
+            Edit Position
           </label>
           <input
             value={playerPositionInputValue}
@@ -88,7 +75,7 @@ const AddPlayerForm = ({ submitPlayer }) => {
         </div>
         <div className=" flex flex-wrap flex-col p-1">
           <label htmlFor="Currentteam" className="m-auto pb-2">
-            Current Team
+            Edit Current Team
           </label>
           <input
             value={playerCurrentTeamInputValue}
@@ -102,7 +89,7 @@ const AddPlayerForm = ({ submitPlayer }) => {
 
         <div className=" flex flex-wrap flex-col mt-40 p-1">
           <label className="m-auto pb-2" htmlFor="datepicker">
-            Choose Player's BirthDay
+            Edit Player's BirthDay
           </label>
           <span>
             <DatePicker
@@ -117,12 +104,12 @@ const AddPlayerForm = ({ submitPlayer }) => {
       <div className="flex flex-col p-5 absolute font-bold rounded w-5/12	mt-8 h-5/6  justify-center right-5 top-8 text-[#c9c9c9] bg-gray-800">
         <div className=" flex flex-wrap flex-col p-1">
           <label htmlFor="Imageu" className="m-auto pb-2">
-            Input Player Image URL{" "}
+            Edit Player Image URL
           </label>
           <input
             id="Imageu"
             className="text-[#494949] placeholder-[#494949] text-center bg-[#c9c9c9] hover:bg-[#ffffff] shadow-xl rounded-xl mt-3 w-full py-1"
-            placeholder="Input Player Image URL"
+            placeholder="Edit  Player Image URL"
             type="text"
             value={playerImgInputValue}
             onChange={(e) => setplayerImgInputValue(e.target.value)}
@@ -140,11 +127,11 @@ const AddPlayerForm = ({ submitPlayer }) => {
             }
             className="bg-[#ffffff] text-[#494949] mt-28 hover:bg-[#c9c9c9] shadow-xl w-full rounded-xl pr-24 pl-24 py-1"
           >
-            Add Player
+            Edit Player
           </button>
         </div>
       </div>
     </div>
   );
 };
-export default connect(mapStateToProps, mapDispatchToProps)(AddPlayerForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditPlayer);

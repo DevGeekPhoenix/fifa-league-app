@@ -1,111 +1,111 @@
 .arrow-closed,
 .arrow-open {
-  border: solid #999;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 4px;
-  position: absolute;
-  right: 10px;
+  border: solid #999 !important;
+  border-width: 0 2px 2px 0 !important;
+  display: inline-block !important;
+  padding: 4px !important;
+  position: absolute !important;
+  right: 10px !important;
 }
 
 .arrow-closed {
-  top: 10px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  top: 10px !important;
+  transform: rotate(45deg) !important;
+  -webkit-transform: rotate(45deg) !important;
 }
 
 .arrow-open {
-  top: 14px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+  top: 14px !important;
+  transform: rotate(-135deg) !important;
+  -webkit-transform: rotate(-135deg) !important;
 }
 
 .Dropdown-root {
-  position: relative;
+  position: relative !important;
 }
 
 .Dropdown-control {
-  position: relative;
-  overflow: hidden;
-  background-color: #c9c9c9;
-  margin: 0 1rem 0 1rem;
-  border-radius: 0.75rem;
-  box-sizing: border-box;
-  color: #494949;
-  cursor: default;
-  outline: none;
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #c9c9c9 !important;
+  margin: 0 1rem 0 1rem !important;
+  border-radius: 0.75rem !important;
+  box-sizing: border-box !important;
+  color: #494949 !important;
+  cursor: default !important;
+  outline: none !important;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 15px;
-  transition: all 200ms ease;
-  animation: all 200ms ease;
+    0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  padding-left: 30px !important;
+  padding-right: 15px !important;
+  transition: all 200ms ease !important;
+  animation: all 200ms ease !important;
 }
 
 .Dropdown-control:hover {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .Dropdown-arrow {
-  border-color: #999 transparent transparent;
-  border-style: solid;
-  border-width: 5px 5px 0;
-  content: " ";
-  display: block;
-  height: 0;
+  border-color: #999 transparent transparent !important;
+  border-style: solid !important;
+  border-width: 5px 5px 0 !important;
+  content: " " !important;
+  display: block !important;
+  height: 0 !important;
   margin-top: -ceil(2.5);
-  position: absolute;
-  right: 10px;
-  top: 25px;
-  width: 0;
+  position: absolute !important;
+  right: 10px !important;
+  top: 25px !important;
+  width: 0 !important;
 }
 
 .is-open .Dropdown-arrow {
-  border-color: transparent transparent #999;
-  border-width: 0 5px 5px;
+  border-color: transparent transparent #999 !important;
+  border-width: 0 5px 5px !important;
 }
 
 .Dropdown-menu {
-  background-color: #c9c9c9;
-  border: 1px solid #ccc;
+  background-color: #c9c9c9 !important;
+  border: 1px solid #ccc !important;
 
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-  border-radius: 0.75rem;
-  margin: 0 1rem 0 1rem;
+    0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+  border-radius: 0.75rem !important;
+  margin: 0 1rem 0 1rem !important;
 
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 15px;
-  margin-top: 1px;
-  max-height: 200px;
-  overflow-y: auto;
-  position: absolute;
-  top: 100%;
-  width: 90%;
-  z-index: 1000;
-  -webkit-overflow-scrolling: touch;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  padding-left: 30px !important;
+  padding-right: 15px !important;
+  margin-top: 1px !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+  position: absolute !important;
+  top: 100% !important;
+  width: 90% !important;
+  z-index: 1000 !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 .Dropdown-option {
-  box-sizing: border-box;
-  color: rgba(51, 51, 51, 0.8);
-  border-radius: 0.75rem;
-  margin-bottom: 0.1rem;
-  cursor: pointer;
-  display: block;
+  box-sizing: border-box !important;
+  color: rgba(51, 51, 51, 0.8) !important;
+  border-radius: 0.75rem !important;
+  margin-bottom: 0.1rem !important;
+  cursor: pointer !important;
+  display: block !important;
 }
 
 .Dropdown-option:hover {
-  background-color: #f2f9fc;
-  color: #333;
+  background-color: #f2f9fc !important;
+  color: #333 !important;
 }
 
 .Dropdown-option.is-selected {
-  background-color: #f2f9fc;
-  color: #333;
+  background-color: #f2f9fc !important;
+  color: #333 !important;
 }

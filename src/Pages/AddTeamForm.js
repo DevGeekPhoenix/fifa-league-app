@@ -27,6 +27,7 @@ const AddTeamForm = ({ submitTeam }) => {
   const onsubmit = () => {
     submitTeam({
       name: teamNameInputValue,
+      players: [],
       teamID:
         "T-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
       dateOfFoundation: new Date(startDate).toISOString().substring(0, 10),

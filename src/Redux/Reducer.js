@@ -23,10 +23,11 @@ const initialState = {
   database: {
     teams: [
       {
-        name: "Bayern Munich ",
+        players: [],
+        name: "Bayern Munich",
         teamID:
           "T-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
-        teamCountry: " Munich, Germany",
+        teamCountry: "Munich, Germany",
         teamStadium: "Allianz Arena",
         dateOfFoundation: "1990",
         teamType: { value: "Club Teams" },

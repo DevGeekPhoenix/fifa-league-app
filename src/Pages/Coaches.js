@@ -1,6 +1,5 @@
 import Navbar from "../Components/NavBar";
 import CoachFilterSideBar from "../Components/CoachFilterSideBar";
-import { Link } from "react-router-dom";
 import CoachesCard from "../Components/CoachesCard";
 
 const Coaches = () => {

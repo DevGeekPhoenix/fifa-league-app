@@ -12,8 +12,11 @@ const CoachControl = (props) => {
     <div>
       <div className="absolute left-64">
         <div className="relative rounded-xl overflow-auto">
-          <div className="shadow-sm overflow-hidden my-8">
-            <table className="border-collapse table-fixed w-full text-sm">
+          <div
+            style={{ height: "500px" }}
+            className="overflow-y-scroll bg-[#374151cb] shadow-sm overflow-hidden my-8"
+          >
+            <table className="border-collapse table-fixed  w-full text-sm">
               <thead className="bg-white text-[#1f2937] opacity-50">
                 <tr>
                   <th className="border-r border-gray-700 font-medium p-4 pl-8  py-3   text-left">
@@ -60,7 +63,7 @@ const CoachControl = (props) => {
                         <span className="flex flex-row justify-between">
                           {coach.dateOfBirth}
                           <Link to={`edit/${coach.coachID}`}>
-                            <button className="text-xs rounded-lg p-1 text-gray-700 bg-[#8d9db9]">
+                            <button className="animate-bounce text-xs rounded-lg p-1 text-gray-700 bg-[#8d9db9]">
                               Edit
                             </button>
                           </Link>
@@ -71,10 +74,10 @@ const CoachControl = (props) => {
                 })}
                 <td
                   colSpan="5"
-                  className=" w-full border-gray-700 p-4 pr-8 hover:bg-[#8d9db9] text-gray-400"
+                  className="absolute bottom-0 bg-[#8d9db9] text-[#1f2937] w-full border-t border-gray-700 p-1 px-8 hover:bg-[#6e7b91] "
                 >
                   <Link to={"add"}>
-                    <button className=" text-[#ffffff]  m-auto ">
+                    <button className="   m-auto ">
                       <span className="text-xl font-bold">+</span> Add Coach
                     </button>
                   </Link>

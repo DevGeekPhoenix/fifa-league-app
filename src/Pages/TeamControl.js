@@ -13,7 +13,10 @@ const TeamControl = (props) => {
     <div>
       <div className="absolute left-64">
         <div className="relative rounded-xl overflow-auto">
-          <div className="shadow-sm overflow-hidden my-8">
+          <div
+            style={{ height: "500px" }}
+            className="overflow-y-scroll bg-[#374151cb] shadow-sm overflow-hidden my-8"
+          >
             <table className="border-collapse table-fixed w-full text-sm">
               <thead className="bg-white text-[#1f2937] opacity-50">
                 <tr>
@@ -67,7 +70,7 @@ const TeamControl = (props) => {
                         <span className="flex flex-row justify-between">
                           {team.teamType.value}
                           <Link to={`edit/${team.teamID}`}>
-                            <button className="text-xs rounded-lg p-1 text-gray-700 bg-[#8d9db9]">
+                            <button className="animate-bounce text-xs rounded-lg p-1 text-gray-700 bg-[#8d9db9]">
                               Edit
                             </button>
                           </Link>
@@ -78,10 +81,10 @@ const TeamControl = (props) => {
                 })}
                 <td
                   colSpan="6"
-                  className=" w-full border-gray-700 p-4 pr-8 hover:bg-[#8d9db9] text-gray-400"
+                  className="absolute bottom-0 bg-[#8d9db9] text-[#1f2937] w-full border-t border-gray-700 p-1 px-8 hover:bg-[#6e7b91] "
                 >
                   <Link to={"add"}>
-                    <button className=" text-[#ffffff]  m-auto ">
+                    <button className="   m-auto ">
                       <span className="text-xl font-bold">+</span> Add Team
                     </button>
                   </Link>

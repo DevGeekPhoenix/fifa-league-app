@@ -17,5 +17,8 @@
   background-color: #494949;
 }
 .scrollbar {
-  height: 28rem;
+  height: 31rem;
+}
+.playerscrollbar {
+  height: 32rem;
 }

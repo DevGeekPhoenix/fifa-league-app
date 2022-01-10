@@ -6,6 +6,7 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5radar from "@amcharts/amcharts5/radar";
+import FootballField from "../FieldImg.png";
 
 const mapStateToProps = ({ database }) => ({
   database,
@@ -22,7 +23,10 @@ const TeamPage = ({ database }) => {
   const teamplayers = database.players.filter((player) =>
     team.players.includes(player.playerID)
   );
-
+  const playerNameList = teamplayers.map((player) => {
+    return player.name;
+  });
+  console.log(playerNameList);
   console.log(teamplayers);
   useEffect(() => {
     let root = am5.Root.new("chartdiv");
@@ -194,7 +198,7 @@ const TeamPage = ({ database }) => {
         </p>
         <div
           id="scrollbarstyle"
-          className="scrollbar  overflow-y-scroll flex flex-wrap mt-1"
+          className="playerscrollbar w-72  overflow-y-scroll flex flex-wrap mt-1"
         >
           {teamplayers.map((player, i) => {
             return (
@@ -217,6 +221,25 @@ const TeamPage = ({ database }) => {
               </div>
             );
           })}
+        </div>
+        <div className="absolute top-16 right-6">
+          <img
+            style={{ height: "30rem", width: "25rem" }}
+            src={FootballField}
+          />
+          <div className="text-white text-lg font-bold w-full absolute top-20 -right-6">
+            <p className="absolute -top-16 left-32">{playerNameList[0]}</p>
+            <p className="absolute -top-2 left-8">{playerNameList[1]}</p>
+            <p className="absolute -top-2 left-52">{playerNameList[2]}</p>
+            <p className="absolute top-16 ">{playerNameList[3]}</p>
+            <p className="absolute top-16 right-10">{playerNameList[4]}</p>
+            <p className="absolute top-48 left-10">{playerNameList[5]}</p>
+            <p className="absolute top-48 right-20">{playerNameList[6]}</p>
+            <p className="absolute top-64 left-1">{playerNameList[7]}</p>
+            <p className="absolute top-64 right-16">{playerNameList[8]}</p>
+            <p className="absolute top-80 left-10">{playerNameList[9]}</p>
+            <p className="absolute top-80 right-10">{playerNameList[10]}</p>
+          </div>
         </div>
       </div>
     </div>

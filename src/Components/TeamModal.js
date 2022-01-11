@@ -254,7 +254,7 @@ const Modal = ({ team, database }) => {
         </div>
         <div
           id="chartdiv"
-          className="absolute top-40 rounded-full text-[#c9c9c9] left-60 w-1/2 h-80"
+          className="absolute top-36 rounded-full text-[#c9c9c9] bg-[#c9c9c97c] left-60  h-80 w-80"
         ></div>
         <Link to={`${team.teamID}`}>
           <button className="animate-bounce font-bold text-[#494949] bg-[#67b7dc] hover:bg-[#34a2d4] rounded-r-xl shadow-xl text-center w-40 py-2">

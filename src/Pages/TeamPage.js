@@ -290,10 +290,10 @@ const TeamPage = ({ database }) => {
                 className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
                 role="tablist"
               >
-                <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <li className="-mb-px  last:mr-0 flex-auto text-center">
                   <a
                     className={
-                      "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                      "text-xs font-bold uppercase px-5 py-3 shadow-lg  block leading-normal " +
                       (openTab === 1
                         ? "text-[#292929] bg-[#e7eff8]"
                         : "text-[#292929] bg-[#8e97a2]")
@@ -310,10 +310,10 @@ const TeamPage = ({ database }) => {
                     Players List
                   </a>
                 </li>
-                <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <li className="-mb-px  last:mr-0 flex-auto text-center">
                   <a
                     className={
-                      "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                      "text-xs font-bold uppercase px-5 py-3 shadow-lg  block leading-normal " +
                       (openTab === 2
                         ? "text-[#292929] bg-[#e7eff8]"
                         : "text-[#292929] bg-[#8e97a2]")

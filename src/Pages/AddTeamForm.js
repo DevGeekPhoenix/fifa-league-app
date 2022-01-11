@@ -35,9 +35,6 @@ const AddTeamForm = ({ submitTeam }) => {
       teamStadium: teamStadiumInputValue,
       teamImg: teamImgInputValue,
       teamType: teamTypeInputValue,
-      teamAttackNumber: Math.floor(Math.random() * (95 - 80 + 1) + 80),
-      teamMIDFIELDNumber: Math.floor(Math.random() * (90 - 70 + 1) + 70),
-      teamDEFENSENumber: Math.floor(Math.random() * (90 - 70 + 1) + 70),
     });
     navigate("/dashboard/teamcontrol");
   };

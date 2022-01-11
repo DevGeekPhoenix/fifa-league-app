@@ -60,12 +60,12 @@ const PlayersCard = (props) => {
             >
               <div className="">
                 <img
-                  className="rounded-full shadow-xl border -z-10 h-28"
+                  className="rounded-full shadow-xl border -z-10 h-28 w-28"
                   src={`${player.playerImg} `}
                 />
               </div>
-              <div className="font-bold	 px-1 py-3.5">
-                <p className="">{`${player.name} `}</p>
+              <div className="font-bold px-1 py-3.5">
+                <p className="max-w-fit">{`${player.name} `}</p>
                 <p>{`${player.playerPosition} `}</p>
                 <p>{`${player.playerCurrentTeam} `}</p>
                 <p>{`${player.dateOfBirth} `}</p>

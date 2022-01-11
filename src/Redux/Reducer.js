@@ -42,9 +42,6 @@ const initialState = {
         teamStadium: "Allianz Arena",
         dateOfFoundation: "1990",
         teamType: { value: "Club Teams" },
-        teamAttackNumber: 99,
-        teamMIDFIELDNumber: 99,
-        teamDEFENSENumber: 99,
         teamImg:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/270px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png",
       },
@@ -68,9 +65,6 @@ const initialState = {
         teamStadium: "Old Trafford",
         dateOfFoundation: "1902",
         teamType: { value: "Club Teams" },
-        teamAttackNumber: 99,
-        teamMIDFIELDNumber: 99,
-        teamDEFENSENumber: 99,
         teamImg:
           "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/270px-Manchester_United_FC_crest.svg.png",
       },
@@ -495,7 +489,7 @@ const initialState = {
       {
         name: "Scott McTominay",
         playerID: "P-ky8kmmsej572wusbkxo",
-        playerPosition: "Midfielder",
+        playerPosition: "MidFielder",
         playerCurrentTeam: "Manchester United",
         dateOfBirth: "08/12/1996",
         playerOffensiveAwareness: 88,
@@ -521,7 +515,7 @@ const initialState = {
       {
         name: "Nemanja Matic",
         playerID: "P-ky8kmmselc9el8mp4hb",
-        playerPosition: "Midfielder",
+        playerPosition: "MidFielder",
         playerCurrentTeam: "Manchester United",
         dateOfBirth: "01/08/1988",
         playerOffensiveAwareness: 76,
@@ -653,16 +647,27 @@ const initialState = {
     coaches: [
       {
         name: "Julian Nagelsmann",
-        coachID:
-          "C-" + Date.now().toString(36) + Math.random().toString(36).substr(2),
+        coachID: "C-ky8tyyfc71phedz79up",
         dateOfBirth: "23 July 1987",
         coachNationality: "German",
         coachCurrentTeam: "Bayern Munich",
         coachImg:
           "https://cdn.vox-cdn.com/thumbor/2LqTwd6tVo7rRlXDbk66EErkD8I=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22740954/1189274686.jpg",
-        coachExperience: 99,
-        coachLeadershipSkills: 99,
-        coachCoachingHistory: 99,
+        coachExperience: 80,
+        coachLeadershipSkills: 75,
+        coachCoachingHistory: 65,
+      },
+      {
+        name: "Ole Gunnar Solskjær",
+        coachID: "C-ky8tyyfckfajrsa49jf",
+        dateOfBirth: "26 February 1973",
+        coachNationality: "Norwegian",
+        coachCurrentTeam: "Manchester United",
+        coachImg:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMQITZT-G_eR5RHLylB7FuR0KV3qDX-9AXySJohwcZymgtqoRAsnUIGWwe7B9-wmKVxSY&usqp=CAU",
+        coachExperience: 90,
+        coachLeadershipSkills: 80,
+        coachCoachingHistory: 70,
       },
     ],
   },

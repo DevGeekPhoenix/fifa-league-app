@@ -145,10 +145,7 @@ const PlayerModal = ({ player }) => {
       <div className="teammodal border text-sm	text-[#c9c9c9] bg-[#494949]  rounded  -mt-3 -ml-5">
         <div className="">
           <div>
-            <img
-              className="rounded-full h-44 ml-3 pt-2	 "
-              src={`${player.playerImg} `}
-            />
+            <img className=" h-44 ml-3 pt-2	 " src={`${player.playerImg} `} />
             <input
               id="playerAvgrange"
               className="playerAvgrange ml-5"
@@ -160,7 +157,7 @@ const PlayerModal = ({ player }) => {
               OVERALL : {playerAvg.toFixed(2)}
             </label>
           </div>
-          <div className="absolute text-2xl font-extrabold mt-5	 text-[#c9c9c9] left-72 -top-6">
+          <div className="absolute w-fit text-2xl font-extrabold mt-5	 text-[#c9c9c9] left-72 -top-6">
             <span>{player.name} Attributes</span>
           </div>
           <div className="absolute top-12 left-72 text-[#c9c9c9]">

@@ -5,8 +5,11 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import * as am5radar from "@amcharts/amcharts5/radar";
 import React, { useEffect } from "react";
-
-const Modal = ({ team }) => {
+import { connect } from "react-redux";
+const mapStateToProps = ({ database }) => ({
+  database,
+});
+const Modal = ({ team, database }) => {
   useEffect(() => {
     let root = am5.Root.new("chartdiv");
 
@@ -26,15 +29,15 @@ const Modal = ({ team }) => {
     let data = [
       {
         teamDetail: "ATTACK",
-        numberOfDetail: team.teamAttackNumber,
+        numberOfDetail: teamAttackNumber,
       },
       {
         teamDetail: "MIDFIELD",
-        numberOfDetail: team.teamMIDFIELDNumber,
+        numberOfDetail: teamMIDFIELDNumber,
       },
       {
         teamDetail: "DEFENSE",
-        numberOfDetail: team.teamDEFENSENumber,
+        numberOfDetail: teamDEFENSENumber,
       },
     ];
 
@@ -107,10 +110,94 @@ const Modal = ({ team }) => {
       root.dispose();
     };
   }, []);
+  const teamplayers = database.players.filter((player) =>
+    team.players.includes(player.playerID)
+  );
+  const forwardPlayers = teamplayers.filter(
+    (player) => player.playerPosition === "Forward"
+  );
+  const midFielderPlayers = teamplayers.filter(
+    (player) => player.playerPosition === "MidFielder"
+  );
+  const defenderPlayers = teamplayers.filter(
+    (player) => player.playerPosition === "Defender"
+  );
+
+  console.log(defenderPlayers);
+  let teamAttackNumber = 0;
+  forwardPlayers.forEach((forwardPlayers) => {
+    teamAttackNumber +=
+      forwardPlayers.playerOffensiveAwareness +
+      forwardPlayers.playerBallControl +
+      forwardPlayers.playerDribbling +
+      forwardPlayers.playerTightPossession +
+      forwardPlayers.playerLowPass +
+      forwardPlayers.playerLoftedPass +
+      forwardPlayers.playerFinishing +
+      forwardPlayers.playerHeading +
+      forwardPlayers.playerSetPieceTaking +
+      forwardPlayers.playerCurl +
+      forwardPlayers.playerSpeed +
+      forwardPlayers.playerAcceleration +
+      forwardPlayers.playerKickingPower +
+      forwardPlayers.playerJump +
+      forwardPlayers.playerPhysicalContact +
+      forwardPlayers.playerBalance +
+      forwardPlayers.playerStamina;
+  });
+  teamAttackNumber = teamAttackNumber / (forwardPlayers.length * 17);
+  let teamMIDFIELDNumber = 0;
+  midFielderPlayers.forEach((midFielderPlayers) => {
+    teamMIDFIELDNumber +=
+      midFielderPlayers.playerOffensiveAwareness +
+      midFielderPlayers.playerBallControl +
+      midFielderPlayers.playerDribbling +
+      midFielderPlayers.playerTightPossession +
+      midFielderPlayers.playerLowPass +
+      midFielderPlayers.playerLoftedPass +
+      midFielderPlayers.playerFinishing +
+      midFielderPlayers.playerHeading +
+      midFielderPlayers.playerSetPieceTaking +
+      midFielderPlayers.playerCurl +
+      midFielderPlayers.playerSpeed +
+      midFielderPlayers.playerAcceleration +
+      midFielderPlayers.playerKickingPower +
+      midFielderPlayers.playerJump +
+      midFielderPlayers.playerPhysicalContact +
+      midFielderPlayers.playerBalance +
+      midFielderPlayers.playerStamina;
+  });
+
+  teamMIDFIELDNumber = teamMIDFIELDNumber / (midFielderPlayers.length * 17);
+
+  let teamDEFENSENumber = 0;
+  defenderPlayers.forEach((defenderPlayers) => {
+    teamDEFENSENumber +=
+      defenderPlayers.playerOffensiveAwareness +
+      defenderPlayers.playerBallControl +
+      defenderPlayers.playerDribbling +
+      defenderPlayers.playerTightPossession +
+      defenderPlayers.playerLowPass +
+      defenderPlayers.playerLoftedPass +
+      defenderPlayers.playerFinishing +
+      defenderPlayers.playerHeading +
+      defenderPlayers.playerSetPieceTaking +
+      defenderPlayers.playerCurl +
+      defenderPlayers.playerSpeed +
+      defenderPlayers.playerAcceleration +
+      defenderPlayers.playerKickingPower +
+      defenderPlayers.playerJump +
+      defenderPlayers.playerPhysicalContact +
+      defenderPlayers.playerBalance +
+      defenderPlayers.playerStamina;
+  });
+
+  teamDEFENSENumber = teamDEFENSENumber / (defenderPlayers.length * 17);
+
+  console.log(teamAttackNumber);
 
   const overallnum =
-    (team.teamAttackNumber + team.teamMIDFIELDNumber + team.teamDEFENSENumber) /
-    3;
+    (teamAttackNumber + teamMIDFIELDNumber + teamDEFENSENumber) / 3;
   return (
     <div className=" ">
       <div className="teammodal border text-sm	text-[#c9c9c9] bg-[#494949]  rounded  -mt-3 -ml-5">
@@ -130,34 +217,38 @@ const Modal = ({ team }) => {
         <div className="absolute font-bold -top-1 left-60 text-[#c9c9c9]">
           <div className="flex space-x-56">
             <label htmlFor="ATTACKrange">ATTACK</label>
-            <label htmlFor="ATTACKrange">{team.teamAttackNumber}</label>
+            <label htmlFor="ATTACKrange">{teamAttackNumber.toFixed(0)}</label>
           </div>
           <input
             id="ATTACKrange"
             className="ATTACKrange"
             type="range"
             readOnly="true"
-            value={team.teamAttackNumber}
+            value={teamAttackNumber}
           />
           <div className="flex space-x-52">
             <label htmlFor="MIDFIELDrange">MIDFIELD</label>
-            <label htmlFor="MIDFIELDrange">{team.teamMIDFIELDNumber}</label>
+            <label className="pl-1" htmlFor="MIDFIELDrange">
+              {teamMIDFIELDNumber.toFixed(0)}
+            </label>
           </div>
           <input
             id="MIDFIELDrange"
             className="MIDFIELDrange"
             type="range"
-            value={team.teamMIDFIELDNumber}
+            value={teamMIDFIELDNumber}
           />
           <div className="flex space-x-52">
             <label htmlFor="DEFENSErange">DEFENSE</label>
-            <label htmlFor="DEFENSErange">{team.teamDEFENSENumber}</label>
+            <label className="pl-2" htmlFor="DEFENSErange">
+              {teamDEFENSENumber.toFixed(0)}
+            </label>
           </div>
           <input
             id="DEFENSErange"
             className="DEFENSErange"
             type="range"
-            value={team.teamDEFENSENumber}
+            value={teamDEFENSENumber}
           />
           <p className="flex justify-end">OVERALL : {overallnum.toFixed(2)}</p>
         </div>
@@ -175,4 +266,4 @@ const Modal = ({ team }) => {
   );
 };
 
-export default Modal;
+export default connect(mapStateToProps)(Modal);

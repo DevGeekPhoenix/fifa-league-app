@@ -23,6 +23,10 @@ const AddPlayerForm = ({ submitPlayer }) => {
   const [playerCurrentTeamInputValue, setplayerCurrentTeamInputValue] =
     useState("");
 
+  const createRandomAttributes = (max, min) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
+
   const onsubmit = () => {
     submitPlayer({
       name: playerNameInputValue,
@@ -32,23 +36,23 @@ const AddPlayerForm = ({ submitPlayer }) => {
       playerPosition: playerPositionInputValue,
       playerCurrentTeam: playerCurrentTeamInputValue,
       playerImg: playerImgInputValue,
-      playerOffensiveAwareness: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerBallControl: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerDribbling: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerTightPossession: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerLowPass: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerLoftedPass: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerFinishing: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerHeading: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerSetPieceTaking: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerCurl: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerSpeed: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerAcceleration: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerKickingPower: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerJump: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerPhysicalContact: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerBalance: Math.floor(Math.random() * (95 - 55 + 1) + 55),
-      playerStamina: Math.floor(Math.random() * (95 - 55 + 1) + 55),
+      playerOffensiveAwareness: createRandomAttributes(95, 55),
+      playerBallControl: createRandomAttributes(95, 55),
+      playerDribbling: createRandomAttributes(95, 55),
+      playerTightPossession: createRandomAttributes(95, 55),
+      playerLowPass: createRandomAttributes(95, 55),
+      playerLoftedPass: createRandomAttributes(95, 55),
+      playerFinishing: createRandomAttributes(95, 55),
+      playerHeading: createRandomAttributes(95, 55),
+      playerSetPieceTaking: createRandomAttributes(95, 55),
+      playerCurl: createRandomAttributes(95, 55),
+      playerSpeed: createRandomAttributes(95, 55),
+      playerAcceleration: createRandomAttributes(95, 55),
+      playerKickingPower: createRandomAttributes(95, 55),
+      playerJump: createRandomAttributes(95, 55),
+      playerPhysicalContact: createRandomAttributes(95, 55),
+      playerBalance: createRandomAttributes(95, 55),
+      playerStamina: createRandomAttributes(95, 55),
     });
     navigate("/dashboard/playercontrol");
   };

@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const TeamPage = ({ database }) => {
+  console.log(database);
   const { id } = useParams();
   const team = database.teams.find((team) => team.teamID === id);
   console.log(team);
